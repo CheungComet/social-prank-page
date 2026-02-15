@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 270 60% 12%;
+    --foreground: 55 100% 60%;
+    --card: 270 50% 18%;
+    --card-foreground: 55 100% 70%;
+    --popover: 270 50% 18%;
+    --popover-foreground: 55 100% 70%;
+    --primary: 280 80% 55%;
+    --primary-foreground: 55 100% 90%;
+    --secondary: 55 100% 50%;
+    --secondary-foreground: 270 60% 12%;
+    --muted: 270 40% 25%;
+    --muted-foreground: 55 60% 60%;
+    --accent: 320 90% 55%;
+    --accent-foreground: 55 100% 95%;
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 280 60% 40%;
+    --input: 270 40% 30%;
+    --ring: 55 100% 50%;
+    --radius: 0px;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Pixel border utility */
+.pixel-border {
+  box-shadow:
+    4px 0 0 0 hsl(var(--border)),
+    -4px 0 0 0 hsl(var(--border)),
+    0 4px 0 0 hsl(var(--border)),
+    0 -4px 0 0 hsl(var(--border)),
+    4px 4px 0 0 hsl(var(--border)),
+    -4px 4px 0 0 hsl(var(--border)),
+    4px -4px 0 0 hsl(var(--border)),
+    -4px -4px 0 0 hsl(var(--border));
+}
+
+.pixel-border-accent {
+  box-shadow:
+    4px 0 0 0 hsl(var(--accent)),
+    -4px 0 0 0 hsl(var(--accent)),
+    0 4px 0 0 hsl(var(--accent)),
+    0 -4px 0 0 hsl(var(--accent)),
+    4px 4px 0 0 hsl(var(--accent)),
+    -4px 4px 0 0 hsl(var(--accent)),
+    4px -4px 0 0 hsl(var(--accent)),
+    -4px -4px 0 0 hsl(var(--accent));
+}
+
+/* Scanline overlay */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Screen shake animation */
+@keyframes screen-shake {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-8px, -6px); }
+  20% { transform: translate(8px, 6px); }
+  30% { transform: translate(-6px, 4px); }
+  40% { transform: translate(6px, -4px); }
+  50% { transform: translate(-4px, 8px); }
+  60% { transform: translate(4px, -8px); }
+  70% { transform: translate(-8px, 2px); }
+  80% { transform: translate(8px, -2px); }
+  90% { transform: translate(-2px, 6px); }
+}
+
+.animate-shake {
+  animation: screen-shake 0.5s ease-in-out;
+}
+
+/* Scrolling text */
+@keyframes scroll-up {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+.animate-scroll-up {
+  animation: scroll-up 20s linear infinite;
+}
+
+/* Pixel sparkle */
+@keyframes pixel-sparkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.pixel-sparkle {
+  animation: pixel-sparkle 1.5s ease-in-out infinite;
+}
