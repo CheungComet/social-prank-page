@@ -2,16 +2,14 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: '社交整蛊 - 你要转一万刀吗？',
-  description: '一个有趣的社交整蛊页面',
+  title: 'Personal Site',
+  description: 'Legal tech · RWA compliance · Cross-border criminal compliance · Data law',
 }
 
 export const viewport: Viewport = {
-  themeColor: '#2d1854',
+  themeColor: '#0e0c0a',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 }
 
 export default function RootLayout({
@@ -21,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className="antialiased overflow-hidden" style={{ fontFamily: '"Press Start 2P", monospace' }}>
+      <body className="antialiased">
         {children}
       </body>
     </html>
